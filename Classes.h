@@ -2,16 +2,23 @@
 #include <iostream>
 #include <vector>
 
-
-
-class Vehicle{
+class Garage{
 protected:
-	std::string brand = "0";
+	std::string garageColor = "";
+	int maxLimit = 10;
+public:
+	Garage();
+	~Garage();
+};
+
+class Vehicle : Garage{
+protected:
 	int speed = 0;
 	int numOfWheels = 0;
-	std::string color = "0";
 public:
-	static int totNumOfVehicles;
+	static int totNumOfVehicles; //Setting the maximum amount of cars that can be stored in the garage
+	std::string brand = "0";
+	std::string color = "0";
 	std::string regnr = "0";
 	Vehicle();
 	Vehicle(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color);
@@ -19,20 +26,9 @@ public:
 	virtual void getAllDetails() = 0;
 	virtual void listVehicles() = 0;
 	virtual void listTypeOfVehicle() = 0;
-	virtual void searchVehicle() = 0;
 };
 
-class Garage : public Vehicle {
-private:
 
-public:
-	Garage();
-   ~Garage();
-    void getAllDetails();
-	void listVehicles();
-	void listTypeOfVehicle();
-	void searchVehicle();
-};
 
 class Bicycle : public Vehicle {
 private:
@@ -47,7 +43,6 @@ public:
 	void getAllDetails();
 	void listVehicles();
 	void listTypeOfVehicle();
-	void searchVehicle();
 };
 class Motorcycle : public Vehicle {
 private:
@@ -62,14 +57,13 @@ public:
 	void getAllDetails();
 	void listVehicles();
 	void listTypeOfVehicle();
-	void searchVehicle();
 };
 class Car : public Vehicle {
 private:
+	static int totNumOfCars;
 	int milage = 0;
 	std::string combi = "0";
 public:
-	static int totNumOfCars;
 	Car();
 	Car(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color, int new_milage, std::string new_combi);
 	Car(std::string manual_reg, std::string manual_brand, std::string new_color);
@@ -77,7 +71,6 @@ public:
 	void getAllDetails();
 	void listVehicles();
 	void listTypeOfVehicle();
-	void searchVehicle();
 };
 class Bus : public Vehicle {
 private:
@@ -92,7 +85,6 @@ public:
 	void getAllDetails();
 	void listVehicles();
 	void listTypeOfVehicle();
-	void searchVehicle();
 };
 class Truck : public Vehicle {
 private:
@@ -107,7 +99,6 @@ public:
 	void getAllDetails();
 	void listVehicles();
 	void listTypeOfVehicle();
-	void searchVehicle();
 };
 
 //Functions for adding vehicles
@@ -121,5 +112,10 @@ Vehicle* AddTruck(std::string manual_reg, std::string manual_brand, std::string 
 //Functions for inventory
 
 Vehicle* printListOfVehicles(std::vector<Vehicle*>& new_garage);
-Vehicle* printTypeAndAmount(Vehicle* new_bike, Vehicle* new_mc, Vehicle* new_car, Vehicle* new_bus, Vehicle* new_truck);
-Vehicle* removeVehicle(std::vector<Vehicle*>& new_garage, std::string new_reg);
+Vehicle* printTypeAndAmount(std::vector<Vehicle*>& new_garage);
+Vehicle* removeVehicle(std::vector<Vehicle*>& new_garage);
+
+//Search Function
+Vehicle* searchVehicle(std::vector<Vehicle*>& new_garage, std::string new_info);
+
+Vehicle* newGarage();

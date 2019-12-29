@@ -19,31 +19,28 @@
 	}
 	Vehicle::~Vehicle() { totNumOfVehicles--; }
 	void Vehicle::listVehicles() {}
-	void Vehicle::listTypeOfVehicle() {
-	
-	}
-	void Vehicle::searchVehicle() {}
+	void Vehicle::listTypeOfVehicle() {}
 
 	//class Garage
 
 	Garage::Garage() {}
 	Garage::~Garage(){}
-	void Garage::getAllDetails() {}
-	void Garage::listVehicles() {}
-	void Garage::listTypeOfVehicle()
-	{
-		for (int i = 0; i < 2; i++)
-		{
-			std::cout << "Här vare bilar!" << std::endl;
-		}
-	}
-	void Garage::searchVehicle() {}
-	
+
 
 	//class Bicycle
 
 	int Bicycle::totNumOfBicycles = 0;
-	Bicycle::Bicycle() { totNumOfBicycles++; }
+	Bicycle::Bicycle() 
+	{ 
+		totNumOfBicycles++;
+		regnr = "My Bike";
+		brand = "Crescent";
+		speed = 30;
+		numOfWheels = 2;
+		color = "Green";
+		footBrake = "Yes";
+		pedalType = "Sporty";
+	}
 	Bicycle::Bicycle(std::string manual_reg, std::string manual_brand, std::string new_color) { regnr = manual_reg; brand = manual_brand; color = new_color; totNumOfBicycles++; }
 	Bicycle::Bicycle(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color, std::string new_footBrake, std::string new_pedalType)
 	: Vehicle(new_regnr, new_brand, new_speed, new_numOfWheels, new_color)
@@ -63,19 +60,30 @@
 	void Bicycle::listVehicles() {
 		std::string outPut;
 		outPut += "Regnr: " + regnr + "\nBrand: " + brand + "\nColor: " + color;
-		std::cout << outPut << "\n" << std::endl;
+		std::cout << "=====================" << std::endl;
+		std::cout << outPut << std::endl;
+		std::cout << "=====================" << std::endl;
 	}
 	void Bicycle::listTypeOfVehicle() 
 	{
 		std::cout << "Bicycles: " << totNumOfBicycles << std::endl;
 	}
-	void Bicycle::searchVehicle() {}
 
 
 //class Motorcycle
 
 	int Motorcycle::totNumOfMotorcycles = 0;
-	Motorcycle::Motorcycle() { totNumOfMotorcycles++; }
+	Motorcycle::Motorcycle() 
+	{
+		totNumOfMotorcycles++;
+		regnr = "YAY 666";
+		brand = "Harley Davidson";
+		speed = 200;
+		numOfWheels = 2;
+		color = "Black";
+		model = "Dyna";
+		decalText = "Ride Fast";
+	}
 	Motorcycle::Motorcycle(std::string manual_reg, std::string manual_brand, std::string new_color) { regnr = manual_reg; brand = manual_brand; color = new_color; totNumOfMotorcycles++;}
 	Motorcycle::Motorcycle(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color, std::string new_model, std::string new_decalText)
 	: Vehicle(new_regnr, new_brand, new_speed, new_numOfWheels, new_color)
@@ -95,13 +103,14 @@
 	void Motorcycle::listVehicles() {
 		std::string outPut;
 		outPut += "Regnr: " + regnr + "\nBrand: " + brand + "\nColor: " + color;
-		std::cout << outPut << "\n" << std::endl;
+		std::cout << "=====================" << std::endl;
+		std::cout << outPut << std::endl;
+		std::cout << "=====================" << std::endl;
 	}
 	void Motorcycle::listTypeOfVehicle() 
 	{
 		std::cout << "Motorcycles: " << totNumOfMotorcycles << std::endl;
 	}
-	void Motorcycle::searchVehicle() {}
 
 //class Car
 	int Car::totNumOfCars = 0;
@@ -135,19 +144,30 @@
 	void Car::listVehicles() {
 		std::string outPut;
 		outPut += "Regnr: " + regnr + "\nBrand: " + brand + "\nColor: " + color;
-		std::cout << outPut << "\n" << std::endl;
+		std::cout << "=====================" << std::endl;
+		std::cout << outPut << std::endl;
+		std::cout << "=====================" << std::endl;
 	}
 	void Car::listTypeOfVehicle() 
 	{
 		std::cout << "Cars: " << totNumOfCars << std::endl;
 	}
-	void Car::searchVehicle() {}
 
 
 
 //class Bus
 	int Bus::totNumOfBusses = 0;
-	Bus::Bus() { totNumOfBusses++; }
+	Bus::Bus() 
+	{ 
+		totNumOfBusses++; 
+		regnr = "IKG 255";
+		brand = "SJ Buss";
+		speed = 80;
+		numOfWheels = 8;
+		color = "Red";
+		length = 18;
+		busType = "School Bus";
+	}
 	Bus::Bus(std::string manual_reg, std::string manual_brand, std::string new_color) { regnr = manual_reg; brand = manual_brand; color = new_color; totNumOfBusses++;}
 	Bus::Bus(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color, int new_length, std::string new_busType)
 	: Vehicle(new_regnr, new_brand, new_speed, new_numOfWheels, new_color)
@@ -167,18 +187,29 @@
 	void Bus::listVehicles() {
 		std::string outPut;
 		outPut += "Regnr: " + regnr + "\nBrand: " + brand + "\nColor: " + color;
-		std::cout << outPut << "\n" << std::endl;
+		std::cout << "=====================" << std::endl;
+		std::cout << outPut << std::endl;
+		std::cout << "=====================" << std::endl;
 	}
 	void Bus::listTypeOfVehicle() 
 	{
 		std::cout << "Busses: " << totNumOfBusses << std::endl;
 	}
-	void Bus::searchVehicle() {}
 
 
 //class Truck
 	int Truck::totNumOfTrucks = 0;
-	Truck::Truck() { totNumOfTrucks++; }
+	Truck::Truck() 
+	{
+		totNumOfTrucks++;
+		regnr = "KGH 222";
+		brand = "Dodge";
+		speed = 150;
+		numOfWheels = 4;
+		color = "Black";
+		autoSteer = "Yes";
+		honkVolume = "Loud";
+	}
 	Truck::Truck(std::string manual_reg, std::string manual_brand, std::string new_color) { regnr = manual_reg; brand = manual_brand; color = new_color; totNumOfTrucks++;}
 	Truck::Truck(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color, std::string new_autoSteer, std::string new_honkVolume)
 	: Vehicle(new_regnr, new_brand, new_speed, new_numOfWheels, new_color)
@@ -198,13 +229,14 @@
 	void Truck::listVehicles() {
 		std::string outPut;
 		outPut += "Regnr: " + regnr + "\nBrand: " + brand + "\nColor: " + color;
-		std::cout << outPut << "\n" << std::endl;
+		std::cout << "=====================" << std::endl;
+		std::cout << outPut << std::endl;
+		std::cout << "=====================" << std::endl;
 	}
 	void Truck::listTypeOfVehicle() 
 	{
 		std::cout << "Trucks: " << totNumOfTrucks << std::endl;
 	}
-	void Truck::searchVehicle() {}
 
 	//Functions for adding Vehicles
 
@@ -234,7 +266,8 @@
 		return new_truck;
 	}
 
-	//Functions for adding vehicles
+	//Functions for inventory
+
 
 
 	Vehicle* printListOfVehicles(std::vector<Vehicle*> &new_garage)
@@ -242,28 +275,149 @@
 		for (int i = 0; i < new_garage.size(); i++)
 		{
 			new_garage[i]->listVehicles();
+			std::cout << std::endl;
 		}
 		return 0;
 	}
-	Vehicle* printTypeAndAmount(Vehicle* new_bike, Vehicle* new_mc, Vehicle* new_car, Vehicle* new_bus, Vehicle* new_truck)
+	Vehicle* printTypeAndAmount(std::vector<Vehicle*>& new_garage)
 	{
-		new_bike->listTypeOfVehicle();
-		new_mc->listTypeOfVehicle();
-		new_car->listTypeOfVehicle();
-		new_bus->listTypeOfVehicle();
-		new_truck->listTypeOfVehicle();
+		new_garage[0]->listTypeOfVehicle();
+		new_garage[1]->listTypeOfVehicle();
+		new_garage[2]->listTypeOfVehicle();
+		new_garage[3]->listTypeOfVehicle();
+		new_garage[4]->listTypeOfVehicle();
 		return 0;
 	}
 
-	Vehicle* removeVehicle(std::vector<Vehicle*>& new_garage, std::string new_reg)
+	Vehicle* removeVehicle(std::vector<Vehicle*>& new_garage)
 	{
+		char tryAgain = '0';
+		std::string new_reg = "";
+		int count = 0;
+		
+		
+
+		do
+		{ 
+		std::cout << "Please type in your registration number and we will remove your car: ";
+		std::cin.ignore();
+		std::getline(std::cin, new_reg);
+		count = 0;
+
 		for (int i = 0; i < new_garage.size(); i++)
 		{
 			if (new_garage[i]->regnr == new_reg)
 			{
+				count++;
 				delete new_garage[i];
 				new_garage.erase(remove(new_garage.begin(), new_garage.end(), new_garage[i]), new_garage.end());
 			}
 		}
+
+		if (count == 0)
+		{
+			std::cout << "Sorry, we can't find this registration number in our system, please try again? (y/n): ";
+			std::cin >> tryAgain;
+		}
+
+		} while (count==0 && tryAgain!='n' && tryAgain!='N');
+			
+		if (tryAgain != 'n' && tryAgain != 'N')
+		{
+			system("cls");
+			std::cout << "Thank you, your vehicle has now been removed from the garage!" << std::endl;
+		}
+		return 0;
+	}
+
+	//Search Function
+	Vehicle* searchVehicle(std::vector<Vehicle*>& new_garage, std::string new_info)
+	{
+		std::string regnr = "";
+		std::string brand = "";
+		std::string color = "";
+		std::string input;
+		char choice = 'Y';
+		int count = 0;
+		int check = 0;
+
+
+		//Transform the input and exisitng data to uppercase
+
+		for (int i = 0; i < new_info.length(); i++)  
+		{
+			if(new_info[i] != ' ')
+			{
+				input += toupper(new_info[i]);
+			}
+		}
+		for (int i = 0; i < new_garage.size(); i++)  
+		{
+			for (int k = 0; k < new_garage[i]->regnr.length(); k++)
+			{
+				if (new_garage[i]->regnr[k] != ' ')
+				{
+					regnr += toupper(new_garage[i]->regnr[k]);
+				}
+			}
+			for (int k = 0; k < new_garage[i]->brand.length(); k++)
+			{
+				if (new_garage[i]->brand[k] != ' ')
+				{
+					brand += toupper(new_garage[i]->brand[k]);
+				}
+			}
+			for (int k = 0; k < new_garage[i]->color.length(); k++)
+			{
+				if (new_garage[i]->color[k] != ' ')
+				{
+					color += toupper(new_garage[i]->color[k]);
+				}
+			}
+
+			//Checks if the desired info is in the garage
+
+			if (input == regnr)
+			{
+				std::cout << std::endl;
+				new_garage[i]->getAllDetails();
+				check++;
+			}
+			else if (input == brand)
+			{
+				std::cout << std::endl;
+				new_garage[i]->getAllDetails();
+				check++;
+				
+			}
+			else if (input == color)
+			{
+				std::cout << std::endl;
+				new_garage[i]->getAllDetails();
+				check++;
+			
+			}
+			if (i == new_garage.size()-1 && check==0)
+			{
+				std::cout << "Sorry, the vehicle is not in the garage at the moment!" << std::endl;
+			}
+			regnr = "";
+			brand = "";
+			color = "";
+		}
+		return 0;
+	}
+
+	Vehicle* newGarage()
+	{
+		std::vector <Vehicle*> garage2;
+		garage2.push_back(new Bicycle("Bike no TWO", "Monark", 25, 2, "Yellow", "Yes", "Cheap Pedals"));
+		garage2.push_back(new Motorcycle("AGG 325", "Honda", 150, 2, "Blue", "Lowrider", "Ride Slow, Die Old"));
+		garage2.push_back(new Car("HHh 456", "SEAT", 150, 4, "Red", 10000, "No"));
+		garage2.push_back(new Bus("GTC 123", "Wolkswagen", 80, 8, "Black", 10, "Tour Bus"));
+		garage2.push_back(new Truck("HJY 321", "Datsun", 120, 4, "Red", "Yes", "Low!"));
+		system("cls");
+		std::cout << "Congratulations! You have now created a garage with five new Vehicles, see the list below: \n" << std::endl;
+		printListOfVehicles(garage2);
 		return 0;
 	}
