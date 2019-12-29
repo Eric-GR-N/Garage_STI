@@ -268,11 +268,9 @@
 
 	//Functions for inventory
 
-
-
 	Vehicle* printListOfVehicles(std::vector<Vehicle*> &new_garage)
 	{
-		for (int i = 0; i < new_garage.size(); i++)
+		for (size_t i = 0; i < new_garage.size(); i++)
 		{
 			new_garage[i]->listVehicles();
 			std::cout << std::endl;
@@ -304,7 +302,10 @@
 		std::getline(std::cin, new_reg);
 		count = 0;
 
-		for (int i = 0; i < new_garage.size(); i++)
+		if (new_reg != "My Bike" && new_reg != "FTW 666" && new_reg != "HHC 046" && new_reg != "GTB 555" && new_reg != "MATCHO")
+		{
+
+		for (size_t i = 0; i < new_garage.size(); i++)
 		{
 			if (new_garage[i]->regnr == new_reg)
 			{
@@ -316,16 +317,23 @@
 
 		if (count == 0)
 		{
-			std::cout << "Sorry, we can't find this registration number in our system, please try again? (y/n): ";
+			std::cout << "Sorry, we can't find this registration number in our system, try again? (y/n): ";
+			std::cin >> tryAgain;
+		}
+		}
+		else
+		{
+			std::cout << "Sorry, this is one of our employees cars and can'y be removed, try again? (y/n): ";
 			std::cin >> tryAgain;
 		}
 
 		} while (count==0 && tryAgain!='n' && tryAgain!='N');
-			
-		if (tryAgain != 'n' && tryAgain != 'N')
+
+		if (count != 0)
 		{
 			system("cls");
-			std::cout << "Thank you, your vehicle has now been removed from the garage!" << std::endl;
+			std::cout << "Thank you, your vehicle has now been removed from the garage!\n" << std::endl;
+			system("pause");
 		}
 		return 0;
 	}
@@ -342,32 +350,32 @@
 		int check = 0;
 
 
-		//Transform the input and exisitng data to uppercase
+		//Transform the input and existing data to uppercase
 
-		for (int i = 0; i < new_info.length(); i++)  
+		for (size_t i = 0; i < new_info.length(); i++)
 		{
 			if(new_info[i] != ' ')
 			{
 				input += toupper(new_info[i]);
 			}
 		}
-		for (int i = 0; i < new_garage.size(); i++)  
+		for (size_t i = 0; i < new_garage.size(); i++)
 		{
-			for (int k = 0; k < new_garage[i]->regnr.length(); k++)
+			for (size_t k = 0; k < new_garage[i]->regnr.length(); k++)
 			{
 				if (new_garage[i]->regnr[k] != ' ')
 				{
 					regnr += toupper(new_garage[i]->regnr[k]);
 				}
 			}
-			for (int k = 0; k < new_garage[i]->brand.length(); k++)
+			for (size_t k = 0; k < new_garage[i]->brand.length(); k++)
 			{
 				if (new_garage[i]->brand[k] != ' ')
 				{
 					brand += toupper(new_garage[i]->brand[k]);
 				}
 			}
-			for (int k = 0; k < new_garage[i]->color.length(); k++)
+			for (size_t k = 0; k < new_garage[i]->color.length(); k++)
 			{
 				if (new_garage[i]->color[k] != ' ')
 				{
@@ -408,6 +416,7 @@
 		return 0;
 	}
 
+	//Function for creating a new garage and adding five vehicles by default
 	Vehicle* newGarage()
 	{
 		std::vector <Vehicle*> garage2;

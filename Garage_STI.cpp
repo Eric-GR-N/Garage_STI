@@ -6,11 +6,9 @@
 
 using namespace std;
 
-void frontEnd();
 
 int main()
 {
-	frontEnd();
 	string input = "";
 	string reg = "";
 	string brand = "";
@@ -23,7 +21,7 @@ int main()
 	int i = 0;
 
 
-	vector<Vehicle*> garage;//Creates the garage like an objectvector that ca store multiple objects(Vehicles)
+	vector<Vehicle*> garage;//Creates the garage like an objectvector that can store multiple objects(Vehicles)
 
 	//Employee Vehicles that is created when the application i run
 	garage.push_back(new Bicycle("My Bike", "Crescent", 30, 2, "Green", "Yes", "Sport Pedals"));
@@ -46,14 +44,17 @@ int main()
 			cout << "[5] - Search vehicle" << endl;
 			cout << "[6] - Create a new garage" << endl;
 			cout << "[7] - Exit the application" << endl;
+			cout << "\nChoice: ";
 			cin >> choice;
 
 			switch (choice)
 			{
 			case '1':
+				system("cls");
 				printListOfVehicles(garage);
 				break;
 			case '2':
+				system("cls");
 				printTypeAndAmount(garage);
 				break;
 			case '3':
@@ -72,6 +73,7 @@ int main()
 				cout << "[3] - Car" << endl;
 				cout << "[4] - Bus" << endl;
 				cout << "[5] - Truck" << endl;
+				cout << "\nChoice: ";
 				cin >> typeOfVehicle;
 				system("cls");
 				switch (typeOfVehicle)
