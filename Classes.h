@@ -5,8 +5,10 @@
 class Garage{
 protected:
 	std::string garageColor = "";
-	int maxLimit = 10;
+	int maxLimit;
 public:
+	void set_size(int new_maxLimit);
+	int get_size();
 	Garage();
 	~Garage();
 };
@@ -38,7 +40,7 @@ private:
 public:
 	Bicycle();
 	Bicycle(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color, std::string new_footBrake, std::string new_pedalType);
-	Bicycle(std::string manual_reg, std::string manual_brand, std::string new_color);
+	Bicycle(std::string manual_reg, std::string manual_brand, std::string new_color, std::string new_pedalType, int new_numOfWheels);
 	~Bicycle();
 	void getAllDetails();
 	void listVehicles();
@@ -103,7 +105,7 @@ public:
 
 //Functions for adding vehicles
 
-Vehicle* AddBicycle(std::string manual_reg, std::string manual_brand, std::string new_color);
+Vehicle* AddBicycle(std::string manual_reg, std::string manual_brand, std::string new_color,std::string new_pedalType, int new_numOfWheels);
 Vehicle* AddMC(std::string manual_reg, std::string manual_brand, std::string new_color);
 Vehicle* AddCar(std::string manual_reg, std::string manual_brand, std::string new_color);
 Vehicle* AddBus(std::string manual_reg, std::string manual_brand, std::string new_color);

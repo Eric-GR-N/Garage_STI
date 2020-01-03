@@ -22,7 +22,14 @@
 	void Vehicle::listTypeOfVehicle() {}
 
 	//class Garage
-
+	void Garage::set_size(int new_maxLimit)
+	{
+		maxLimit = new_maxLimit;
+	}
+	int Garage::get_size() 
+	{
+		return maxLimit;
+	}
 	Garage::Garage() {}
 	Garage::~Garage(){}
 
@@ -41,8 +48,8 @@
 		footBrake = "Yes";
 		pedalType = "Sporty";
 	}
-	Bicycle::Bicycle(std::string manual_reg, std::string manual_brand, std::string new_color) { regnr = manual_reg; brand = manual_brand; color = new_color; totNumOfBicycles++; }
-	Bicycle::Bicycle(std::string new_regnr, std::string new_brand, int new_speed, int new_numOfWheels, std::string new_color, std::string new_footBrake, std::string new_pedalType)
+	Bicycle::Bicycle(std::string manual_reg, std::string manual_brand, std::string new_color, std::string new_pedalType, int new_numOfWheels) { regnr = manual_reg; brand = manual_brand; color = new_color; pedalType = new_pedalType; numOfWheels = new_numOfWheels; totNumOfBicycles++; }
+	Bicycle::Bicycle(std::string new_regnr, std::string new_brand , int new_speed, int new_numOfWheels, std::string new_color, std::string new_footBrake, std::string new_pedalType)
 	: Vehicle(new_regnr, new_brand, new_speed, new_numOfWheels, new_color)
 	{
 		footBrake = new_footBrake; 
@@ -240,9 +247,9 @@
 
 	//Functions for adding Vehicles
 
-	Vehicle* AddBicycle(std::string manual_reg, std::string manual_brand, std::string new_color)
+	Vehicle* AddBicycle(std::string manual_reg, std::string manual_brand, std::string new_color, std::string new_pedalType, int new_numOfWheels)
 	{
-		Vehicle* new_bicycle = new Bicycle(manual_reg, manual_brand, new_color);
+		Vehicle* new_bicycle = new Bicycle(manual_reg, manual_brand, new_color, new_pedalType, new_numOfWheels);
 		return new_bicycle;
 	}
 	Vehicle* AddMC(std::string manual_reg, std::string manual_brand, std::string new_color)

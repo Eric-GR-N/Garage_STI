@@ -13,15 +13,19 @@ int main()
 	string reg = "";
 	string brand = "";
 	string color = "";
+	string pedalType = "";
+	int numOfWheels = 0;
 	char again = '0';
 	char removeAgain = '0';
 	char typeOfVehicle = '0';
 	char searchChoice = '0';
 	char choice = '0';
 	int i = 0;
+	int amount = 0;
 
-
+	Garage size;//Object to create a max limit with setters and getters
 	vector<Vehicle*> garage;//Creates the garage like an objectvector that can store multiple objects(Vehicles)
+
 
 	//Employee Vehicles that is created when the application i run
 	garage.push_back(new Bicycle("My Bike", "Crescent", 30, 2, "Green", "Yes", "Sport Pedals"));
@@ -37,28 +41,34 @@ int main()
 
 	do
 	{
-			cout << "[1] - See all the vehicles in the garage" << endl;
-			cout << "[2] - See the type and amount of vehicles in the garage" << endl;
-			cout << "[3] - Add vehicle to the garage" << endl;
-			cout << "[4] - Remove vehicle from the garage" << endl;
-			cout << "[5] - Search vehicle" << endl;
-			cout << "[6] - Create a new garage" << endl;
-			cout << "[7] - Exit the application" << endl;
+		    cout << "[1] - Set size of the garage" << endl;
+			cout << "[2] - See all the vehicles in the garage" << endl;
+			cout << "[3] - See the type and amount of vehicles in the garage" << endl;
+			cout << "[4] - Add vehicle to the garage" << endl;
+			cout << "[5] - Remove vehicle from the garage" << endl;
+			cout << "[6] - Search vehicle" << endl;
+			cout << "[7] - Create a new garage" << endl;
+			cout << "[8] - Exit the application" << endl;
 			cout << "\nChoice: ";
 			cin >> choice;
 
 			switch (choice)
 			{
 			case '1':
-				system("cls");
-				printListOfVehicles(garage);
+				cout << "Please enter the amount of cars you want the Garage to hold: ";
+				cin >> amount;
+				size.set_size(amount);
 				break;
 			case '2':
 				system("cls");
-				printTypeAndAmount(garage);
+				printListOfVehicles(garage);
 				break;
 			case '3':
-				if (Vehicle::totNumOfVehicles >= 10)
+				system("cls");
+				printTypeAndAmount(garage);
+				break;
+			case '4':
+				if (Vehicle::totNumOfVehicles >= size.get_size())
 				{
 					cout << "Sorry, the garage is full at the moment, please remove a car or come back another time" << endl;
 				}
@@ -86,7 +96,11 @@ int main()
 					getline(cin, brand);
 					cout << "Please enter the vehicle color:  ";
 					getline(cin, color);
-					garage.push_back(AddBicycle(reg, brand, color));
+					cout << "Please enter the pedal type:  ";
+					getline(cin, pedalType);
+					cout << "Please enter the number of wheels:  ";
+					cin>>numOfWheels;
+					garage.push_back(AddBicycle(reg, brand, color,pedalType,numOfWheels));
 					break;
 				case '2':
 					cin.ignore();
@@ -141,11 +155,11 @@ int main()
 				} while (again != 'n' && again != 'N' && Vehicle::totNumOfVehicles<10);
 				}
 				break;
-			case '4':
+			case '5':
 				removeVehicle(garage);
 				system("cls");
 				break;
-			case '5':
+			case '6':
 				system("cls");
 				cout << "Please choose your search criteria: \n" << endl;
 				do
@@ -185,10 +199,10 @@ int main()
 					}
 				} while (searchChoice != '1' && searchChoice != '2' && searchChoice != '3');
 				break;
-			case '6':
+			case '7':
 				newGarage();
 				break;
-			case '7':
+			case '8':
 				choice = 'q';
 				break;
 			default:
